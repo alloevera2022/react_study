@@ -1,7 +1,17 @@
-export default function Header() { 
+import { useState } from 'react'
+import logo from '/logo-name.svg'
+
+
+export default function Header() {
+  const [now, setNow] = useState(new Date())
+  setInterval(() =>setNow(new Date()), 1000)
+
+
     return (
-      <header>  
-        <h3>Result University</h3>
-        <span>Тут будет время</span>
-      </header>)
+      <header> 
+        <img src={logo} alt="Result" /> 
+        {/* <h3>Result University</h3> */}
+        <span>Время сейчас: { now.toLocaleTimeString()}</span>
+      </header>
+      )
   }
